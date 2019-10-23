@@ -4,13 +4,14 @@
 #
 Name     : R-Fahrmeir
 Version  : 2016.5.31
-Release  : 13
+Release  : 14
 URL      : https://cran.r-project.org/src/contrib/Fahrmeir_2016.5.31.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/Fahrmeir_2016.5.31.tar.gz
 Summary  : Data from the Book "Multivariate Statistical Modelling Based on
 Group    : Development/Tools
 License  : GPL-2.0+
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
 Modelling Based on Generalized Linear Models", first edition, by 
@@ -23,13 +24,13 @@ Modelling Based on Generalized Linear Models", first edition, by
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552921435
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1571826279
 
 %install
-export SOURCE_DATE_EPOCH=1552921435
+export SOURCE_DATE_EPOCH=1571826279
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -58,12 +59,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  Fahrmeir || :
+R CMD check --no-manual --no-examples --no-codoc Fahrmeir || :
 
 
 %files
