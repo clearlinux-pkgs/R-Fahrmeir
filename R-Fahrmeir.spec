@@ -4,14 +4,13 @@
 #
 Name     : R-Fahrmeir
 Version  : 2016.5.31
-Release  : 17
+Release  : 18
 URL      : https://cran.r-project.org/src/contrib/Fahrmeir_2016.5.31.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/Fahrmeir_2016.5.31.tar.gz
 Summary  : Data from the Book "Multivariate Statistical Modelling Based on
 Group    : Development/Tools
 License  : GPL-2.0+
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
 Modelling Based on Generalized Linear Models", first edition, by 
@@ -19,21 +18,22 @@ Modelling Based on Generalized Linear Models", first edition, by
 
 %prep
 %setup -q -c -n Fahrmeir
+cd %{_builddir}/Fahrmeir
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571826279
+export SOURCE_DATE_EPOCH=1589520037
 
 %install
-export SOURCE_DATE_EPOCH=1571826279
+export SOURCE_DATE_EPOCH=1589520037
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
