@@ -4,7 +4,7 @@
 #
 Name     : R-Fahrmeir
 Version  : 2016.5.31
-Release  : 31
+Release  : 32
 URL      : https://cran.r-project.org/src/contrib/Fahrmeir_2016.5.31.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/Fahrmeir_2016.5.31.tar.gz
 Summary  : Data from the Book "Multivariate Statistical Modelling Based on
